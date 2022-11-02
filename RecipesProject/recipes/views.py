@@ -9,7 +9,7 @@ from django.shortcuts import get_object_or_404
 
 
 # Create your views here.
-# @method_decorator(login_required(login_url='login'), name='dispatch')
+@method_decorator(login_required(login_url='login'), name='dispatch')
 class CreateRecipe(TemplateView):
     form_class = CreateRecipeForm
     context = {}
@@ -18,7 +18,7 @@ class CreateRecipe(TemplateView):
     def get(self,request,*args,**kwargs):
         user = request.user
         self.context['form'] =self.form_class(initial={'created_by': user})
-        return render(request,self.template_name, self.context)
+        return render(request, self.template_name, self.context)
 
     def post(self,request,*args,**kwargs):
         form = self.form_class(data=request.POST,files=request.FILES)
@@ -30,7 +30,7 @@ class CreateRecipe(TemplateView):
             return render(request,self.template_name,self.context)
 
 
-# @method_decorator(login_required(login_url='login'), name='dispatch')
+@method_decorator(login_required(login_url='login'), name='dispatch')
 class ViewRecipe(TemplateView):
     template_name = 'recipes/viewrecipe.html'
     context ={}
