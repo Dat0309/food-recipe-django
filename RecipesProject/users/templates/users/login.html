@@ -15,11 +15,13 @@
   <body>
     <div class="container">
       <form method="post" novalidate>
-        {%csrf_token%}
+        {% csrf_token %}
         <h3>Đăng nhập</h3>
         {% include 'home/form.html' with form=form %}
         <br />
         <button type="submit" class="btn btn-primary">Xác nhận</button>
+        <br>
+        <br>
         Chưa có tài khoản?
         <a href="{% url 'register' %}">Đăng ký ngay</a>
       </form>

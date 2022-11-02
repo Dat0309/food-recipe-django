@@ -9,7 +9,7 @@ from django.shortcuts import get_object_or_404
 
 
 # Create your views here.
-@method_decorator(login_required(login_url='login'), name='dispatch')
+# @method_decorator(login_required(login_url='login'), name='dispatch')
 class CreateRecipe(TemplateView):
     form_class = CreateRecipeForm
     context = {}
@@ -30,7 +30,7 @@ class CreateRecipe(TemplateView):
             return render(request,self.template_name,self.context)
 
 
-@method_decorator(login_required(login_url='login'), name='dispatch')
+# @method_decorator(login_required(login_url='login'), name='dispatch')
 class ViewRecipe(TemplateView):
     template_name = 'recipes/viewrecipe.html'
     context ={}
